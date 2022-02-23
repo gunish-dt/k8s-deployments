@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: php-ingress
+  namespace: gunish
+spec:
+  rules:
+    - host: gunishdev.tk
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: php-app-gunish-env-service
+              servicePort: 80

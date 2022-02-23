@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: firstrs
+  labels:
+    name: firstrs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      apps: myapp
+  template:
+    metadata:
+      name: dpod
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: container
+          image: coolgourav147/nginx-custom
